@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>5A-FE OBD-I Scanner</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>5A-FE OBD-I Scanner</h1>
+    <div class="controls">
+      <button id="scan">Scan</button>
+      <button id="clear">Clear</button>
+      <button id="live">Live Data</button>
+      <button id="history">History</button>
+    </div>
+    <pre id="output"></pre>
+  </div>
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
