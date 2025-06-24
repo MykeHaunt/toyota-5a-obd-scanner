@@ -1,0 +1,21 @@
+import os
+import unittest
+from src.database import init_db, log_session, fetch_history
+
+class TestDatabase(unittest.TestCase):
+    db_file = 'data/test_diag.db'
+
+    @classmethod
+    def setUpClass(cls):
+        if os.path.exists(cls.db_file):
+            os.remove(cls.db_file)
+        os.makedirs(os.path.dirname(cls.db_file), exist_ok=True)
+        init_db(cls.db_file)
+
+    def test_log_and_fetch(self):
+        session_id = log_session('sim', [], self.db_file)
+        history = fetch_history(self.db_file, limit=1)
+        self.assertEqual(history[0]['id'], session_id)
+
+if __name__ == '__main__':
+    unittest.main()
