@@ -1,0 +1,11 @@
+async function callApi(path, opts={}) {
+  const res = await fetch(path, opts);
+  return res.json();
+}
+
+document.getElementById('scan').onclick = async () => {
+  const data = await callApi('/scan');
+  document.getElementById('output').innerText = JSON.stringify(data, null, 2);
+};
+
+// You can add similar handlers for clear, live, and history routes
